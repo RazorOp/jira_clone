@@ -1,0 +1,5 @@
+tasks:
+  cypress-e2e:
+    image: cypress/base:10
+    commands:
+      - cypress run
