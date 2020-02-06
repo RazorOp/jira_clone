@@ -2,4 +2,16 @@ tasks:
   cypress-e2e:
     image: cypress/base:10
     commands:
-      - cypress run
+      - cd client
+      - npm install
+      - npm run test:jest
+    variables:
+      - DB_USERNAME=postgres
+      - DB_DATABASE=jira_test
+      - DB_PASSWORD=secret
+    services:
+      - image: postgres
+        environment:
+        - POSTGRES_DB=jira_test
+        - POSTGRES_PASSWORD=secret
+
